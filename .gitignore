@@ -1,7 +1,4 @@
-disable = 
-      C0114, # Missing module docstring
-      C0115, # Missing class docstring
-      C0116, # Missing function or method docstring
-      W0703 # Catching too general exception Exception
-      C0209, # Consider using f-string
-      E0015, # Unrecognized option 
+**/__pycache__
+**pytest_cache
+*venv
+.venv*
