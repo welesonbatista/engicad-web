@@ -9,6 +9,7 @@ disable =
       E0015, # Unrecognized option 
       W0703, # Catching too general exception BaseException
       C0209, # Consider using f-string
+      W0719, # Exception is not derived from BaseException
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
