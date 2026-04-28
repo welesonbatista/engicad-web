@@ -1,9 +1,9 @@
 CREATE TABLE parts (
     id UUID PRIMARY KEY,
-    diameter NUMERIC NOT NULL,
-    length NUMERIC NOT NULL,
-    hole_diameter NUMERIC NOT NULL,
-    file_path TEXT NOT NULL,
+    diameter NUMERIC,
+    length NUMERIC,
+    hole_diameter NUMERIC,
+    file_path TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
 CREATE TABLE part_generation_logs (
