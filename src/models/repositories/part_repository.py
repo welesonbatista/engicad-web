@@ -4,16 +4,13 @@ from src.models.entities.part_entity import PartEntity
 from src.core.database_connection_handler import DBConnectionHandler
 from .interfaces.generate_part_repository_interface import PartRepositoryInterface
 
-class PartRepository(PartRepositoryInterface):
 
-    async def insert_part(self, part: Dict[str, Any]):
+class PartRepository(PartRepositoryInterface):
+    async def insert_part(self, part: PartEntity):
         async with DBConnectionHandler() as db:
             assert db.session is not None
-
-            query = insert(PartEntity).values(**part)
-            await db.session.execute(query)
+            db.session.add(part)
             await db.session.commit()
-
         return part
 
     async def find_part_by_id(self, part_id: int):
