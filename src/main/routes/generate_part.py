@@ -7,10 +7,10 @@ router = APIRouter(tags=["parts"])
 @router.post("/generate-part")
 async def generate_part(body: dict):
 
-    http_request = HttpRequest(body)
+    http_request = HttpRequest(body=body)
 
     view = generate_part_composer()
 
-    response = view.handle(http_request)
+    response = await view.handle(http_request)
 
     return response
