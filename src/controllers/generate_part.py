@@ -61,7 +61,7 @@ class GeneratePartController(GeneratePartInterface):
 
     def __build_entity(self, data_part: dict, file_path: str) -> PartEntity:
         return PartEntity(
-            id=str(uuid.uuid4()),
+            id=uuid.uuid4(),
             diameter=data_part["diameter"],
             length=data_part["length"],
             hole_diameter=data_part["hole_diameter"],
