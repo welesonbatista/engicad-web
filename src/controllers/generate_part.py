@@ -47,13 +47,16 @@ class GeneratePartController(GeneratePartInterface):
         if data_part.get("length", 0) <= 0:
             raise Exception("Invalid length.")
 
+        if data_part.get("hole_diameter", 0) <= 0:
+            raise Exception("Hole diameter must be greater than 0")
+
         if data_part.get("hole_diameter", 0) >= data_part.get("diameter"):
             raise Exception(
                 "Hole diameter must be smaller than the part diameter."
             )
 
     async def __generate_cad(self, data_part: dict) -> str:
-        return await self.__cad_service.generate(
+        return await self.__cad_service.generate_cylinder(
             diameter=data_part["diameter"],
             length=data_part["length"],
             hole=data_part["hole_diameter"]
