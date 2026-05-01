@@ -2,8 +2,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from src.core.database_connection_handler import engine
 from src.core.metadata import Base
-from src.models.entities.part_entity import PartEntity
-from src.main.routes.generate_part import router
+from src.main.routes.generate_part import generate_part
+from src.main.routes.generate_bolt import generate_bolt
 
 async def init_db() -> None:
     async with engine.begin() as conn:
@@ -16,4 +16,5 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-app.include_router(router)
+app.include_router(generate_part)
+app.include_router(generate_bolt)

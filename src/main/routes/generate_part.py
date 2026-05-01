@@ -2,10 +2,10 @@ from fastapi import APIRouter
 from src.main.composer.generate_part_composer import generate_part_composer
 from src.views.http_types.http_request import HttpRequest
 
-router = APIRouter(tags=["parts"])
+generate_part = APIRouter(tags=["parts"])
 
-@router.post("/generate-part")
-async def generate_part(body: dict):
+@generate_part.post("/generate-part")
+async def generate_part_endpoint(body: dict):
 
     http_request = HttpRequest(body=body)
 
